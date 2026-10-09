@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow">
+            <div class="card-body p-4">
+                <h3 class="card-title mb-4"><i class="bi bi-cloud-upload"></i> อัปโหลดรูปภาพและเพิ่มผลงานใหม่</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">ชื่อโปรเจกต์ / ผลงาน</label>
+                        <input type="text" name="title" class="form-control" placeholder="เช่น ระบบคลังรูปภาพเว็บไซต์" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">เครื่องมือ / เทคโนโลยีที่ใช้ (Tech Stack)</label>
+                        <input type="text" name="tech_stack" class="form-control" placeholder="เช่น Python, Flask, Bootstrap, MySQL" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ลิงก์ GitHub / Demo (ถ้ามี)</label>
+                        <input type="url" name="github_link" class="form-control" placeholder="https://github.com/username/project">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">คำอธิบายรายละเอียดผลงาน</label>
+                        <textarea name="description" class="form-control" rows="4" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">เลือกรูปภาพผลงาน (Image Preview)</label>
+                        <input type="file" name="file" class="form-control" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">บันทึกและอัปโหลด</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

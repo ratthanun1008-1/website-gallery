@@ -1,0 +1,22 @@
+.project-img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-img-sm {
+    height: 140px;
+    object-fit: cover;
+}
+
+.max-height-500 {
+    max-height: 500px;
+    object-fit: contain;
+    background-color: #f8f9fa;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

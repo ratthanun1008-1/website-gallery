@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-md-12 text-center my-3">
+        <h2 class="fw-bold">คลังผลงานนักพัฒนาระบบและโปรแกรมเมอร์</h2>
+        <p class="text-muted">รวมผลงานการพัฒนาซอฟต์แวร์ เว็บแอปพลิเคชัน และโครงงานนักศึกษา</p>
+    </div>
+</div>
+
+{% if query %}
+    <p class="text-muted">ผลการค้นหาสำหรับ: <strong>"{{ query }}"</strong></p>
+{% endif %}
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for project in projects %}
+    <div class="col">
+        <div class="card h-100 shadow-sm project-card">
+            <img src="{{ url_for('static', filename='uploads/' + project.image_file) }}" class="card-img-top project-img" alt="{{ project.title }}">
+            <div class="card-body">
+                <h5 class="card-title text-truncate">{{ project.title }}</h5>
+                <p class="card-text text-muted small text-truncate-2">{{ project.description }}</p>
+                <div class="mb-2">
+                    <span class="badge bg-secondary">{{ project.tech_stack }}</span>
+                </div>
+            </div>
+            <div class="card-footer bg-white d-flex justify-content-between align-items-center">
+                <small class="text-muted"><i class="bi bi-person"></i> {{ project.author.username }}</small>
+                <a href="{{ url_for('project_detail', project_id=project.id) }}" class="btn btn-sm btn-outline-primary">ดูรายละเอียด</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="col-12 text-center py-5">
+        <p class="text-muted fs-5">ไม่พบผลงานในคลังระบบ</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow">
+            <div class="card-body p-4">
+                <h3>แก้ไขข้อมูลผลงาน</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label class="form-label">ชื่อโปรเจกต์</label>
+                        <input type="text" name="title" class="form-control" value="{{ project.title }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">เทคโนโลยีที่ใช้</label>
+                        <input type="text" name="tech_stack" class="form-control" value="{{ project.tech_stack }}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">ลิงก์ GitHub</label>
+                        <input type="url" name="github_link" class="form-control" value="{{ project.github_link if project.github_link else '' }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">คำอธิบาย</label>
+                        <textarea name="description" class="form-control" rows="4" required>{{ project.description }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">อัปโหลดรูปภาพใหม่ (หากต้องการเปลี่ยนรูป)</label>
+                        <input type="file" name="file" class="form-control" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">บันทึกการแก้ไข</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
